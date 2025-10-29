@@ -58,3 +58,29 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* Flexbox for theme buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* This centers our buttons horizontally */
+    gap: 20px; /* this gives space between the buttons */
+    flex-wrap: wrap; /* allows buttons to wrap on small screens */
+}
+
+/* Styling buttons to have flexible size */
+.button-container button {
+    flex: 1 1 150px; /* grow & shrink, with minimum of 150px */
+    padding: 15px 25px; /* padding inside buttons */
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Optional bigger buttons on small screens */
+/* messing about with @media queries */
+@media (max-width: 600px) {
+    .button-container button {
+        flex: 1 1 100%; /* full width on mobile */
+        font-size: 1.2rem;
+        padding: 20px 0;
+    }
+}
