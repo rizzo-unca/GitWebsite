@@ -15,6 +15,7 @@ h2 {
 
 /* Navigation Bar Styling */
 .topnav{
+    position: relative;
     background-image: linear-gradient(90deg, #e619d4, #4619e6);
     overflow: hidden;
 }
@@ -38,6 +39,7 @@ h2 {
     color: white;
 }
 
+/* Welcome Text Styling */
 .welcome{
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
