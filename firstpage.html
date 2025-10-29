@@ -5,7 +5,33 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link id="theme-style" rel="stylesheet" type="text/css" href="styles.css">
+
+         <script>
+            // Run this once the page starts loading
+            window.addEventListener("DOMContentLoaded", () => {
+                // Get the ?theme= value from the URL
+                const params = new URLSearchParams(window.location.search);
+                const theme = params.get("theme");
+                const themeLink = document.getElementById("theme-style");
+
+                // Switch stylesheet based on theme
+                if (theme === "contrast") {
+                    themeLink.href = "highcontrast.css";
+                } else {
+                    themeLink.href = "styles.css";
+                }
+
+                //  Saving theme in url for all internal links
+                const allLinks = document.querySelectorAll("a[href]");
+                allLinks.forEach(link => {
+                    const url = new URL(link.href, window.location.origin);
+                    url.searchParams.set("theme", theme);
+                    link.href = url.toString();
+                }); 
+            });
+        </script>
+
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -16,24 +42,27 @@
         </div>
 
         <div class="welcome">
+            <!-- Welcome section -->
             <h1>Welcome to me messing about</h1>
-            <p>This is a website for me to simply mess about.</p>
-            <p>More will come at a later date but as of now this is it.</p>
-            <p>Currently Under Development: Pictures for page four.</p>
-        <p> </p> <!-- this is here for spacing purposes currently, do not remove--> 
+            <p>This is a website for me to simply mess about.<br>
+               More will come at a later date but as of now this is it.<br>
+               Currently Under Developent: Theme Switching & Pictures.</p>
+            
+            <!-- Github commit tracking -->
             <h2>Github Commit timeline</h2>
-            <p>October 27th 2025 [Website Created]</p>
-            <p>October 27th 2025 @ 10:49:47 [Second Page Added]</p>
-            <p>October 27th 2025 @ 10:59:12 [CSS Page Added]</p>
-            <p>October 27th 2025 @ 11:12:04 [Nav Bar Testing Begun]</p>
-            <p>October 27th 2025 @ 11:28:11 [Nav Bar Implementation]</p>
-            <p>October 27th 2025 @ 11:45:56 [Nav Bar Optimization & Site Theme Changes</p>
-            <p>October 29th 2025 @ 09:51:39 [New Font Implimentation]</p>
-            <p>October 29th 2025 @ 10:25:36 [Fourth Page Implementation]</p>
-            <p>October 29th 2025 @ 10:47:45 [Picture Implementation]</p>
-            <p style="color: #bf9b30;">October 29th 2025 @ 11:05:09 [Picture Refinement]</p>
-
-
+            <ul>
+                <li>October 27th 2025 [Website Created]</li>
+                <li>October 27th 2025 @ 10:49:47 [Second Page Added]</li>
+                <li>October 27th 2025 @ 10:59:12 [CSS Page Added]</li>
+                <li>October 27th 2025 @ 11:12:04 [Nav Bar Testing Begun]</li>
+                <li>October 27th 2025 @ 11:28:11 [Nav Bar Implementation]</p>
+                <li>October 27th 2025 @ 11:45:56 [Nav Bar Optimization & Site Theme Changes</li>
+                <li>October 29th 2025 @ 09:51:39 [New Font Implimentation]</li>
+                <li>October 29th 2025 @ 10:25:36 [Fourth Page Implementation]</li>
+                <li>October 29th 2025 @ 10:47:45 [Picture Implementation]</li>
+                <li>October 29th 2025 @ 11:05:09 [Picture Refinement]</li>
+                <li style="color: #bf9b30;">October 29th 2025 @ 01:21:25 [Theme Implementation & Formatting</li>
+            </ul>
         </div>
     </body>
 </html>

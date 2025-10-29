@@ -5,7 +5,29 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link id="theme-style" rel="stylesheet" type="text/css" href="styles.css">
+        
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                const params = new URLSearchParams(window.location.search);
+                const theme = params.get("theme");
+                const themeLink = document.getElementById("theme-style");
+
+                if (theme === "contrast") {
+                    themeLink.href = "highcontrast.css";
+                } else {
+                    themeLink.href = "styles.css";
+                }
+
+                // Keep theme in all links
+                const allLinks = document.querySelectorAll("a[href]");
+                allLinks.forEach(link => {
+                    const url = new URL(link.href, window.location.origin);
+                    url.searchParams.set("theme", theme);
+                    link.href = url.toString();
+                });
+            });
+        </script>
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -19,8 +41,7 @@
             <h1>Welcome to page four!</h1>
             <p>Here we're gonna try and show off some photos!</p>
             <p>The golden gate bridge picture is not mine and can</p>
-            <a href="https://www.pexels.com/photo/golden-state-bridge-california-161764/" target="_blank">be found @ this link</a>
-            <p> </p>
+            <a href="https://www.pexels.com/photo/golden-state-bridge-california-161764/" target="_blank">be found @ this link,</a>
             <a href="https://www.pexels.com/photo/white-water-boat-753331/" target="_blank">as can the ship picture</a>
         </div>
         <div class="images">

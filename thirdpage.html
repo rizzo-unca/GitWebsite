@@ -1,3 +1,4 @@
+<!-- Newsletter! -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,29 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link id="theme-style" rel="stylesheet" type="text/css" href="styles.css">
+
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                const params = new URLSearchParams(window.location.search);
+                const theme = params.get("theme");
+                const themeLink = document.getElementById("theme-style");
+
+                if (theme === "contrast") {
+                    themeLink.href = "highcontrast.css";
+                } else {
+                    themeLink.href = "styles.css";
+                }
+
+                // Keep theme in all links
+                const allLinks = document.querySelectorAll("a[href]");
+                allLinks.forEach(link => {
+                    const url = new URL(link.href, window.location.origin);
+                    url.searchParams.set("theme", theme);
+                    link.href = url.toString();
+                });
+            });
+        </script>
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -17,11 +40,13 @@
         <!-- Welcome Text -->
         <div class="welcome">
             <h1>Welcome To Page 3!</h1>
-            <p>This is the newsletter page.</p>
-            <p>You can check back here to see what's being worked on for the site!</p>
-            <p>Pictures are live, new ones will be coming soon!</p>
-            <p>We are beginning construction on different website themes!</p>
-            <p>High contrast is under development!</p>
+            <p>This is the newsletter page.<br>
+               You can check back here to see what's being worked on for the site!<br>
+               Pictures are live, new ones will be coming soon!<br>
+               We are beginning construction on different website themes!<br>
+               High contrast is under development!<br>
+               High contrast choise has been implemented, currently tweaking<br>
+               the theme itself and working on other themes!</p>
         </div>
     </body>
 </html>

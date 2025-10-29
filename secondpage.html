@@ -5,7 +5,30 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link id="theme-style" rel="stylesheet" type="text/css" href="styles.css">
+
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                const params = new URLSearchParams(window.location.search);
+                const theme = params.get("theme");
+                const themeLink = document.getElementById("theme-style");
+
+                if (theme === "contrast") {
+                    themeLink.href = "highcontrast.css";
+                } else {
+                    themeLink.href = "styles.css";
+                }
+
+                // Keep theme in all links
+                const allLinks = document.querySelectorAll("a[href]");
+                allLinks.forEach(link => {
+                    const url = new URL(link.href, window.location.origin);
+                    url.searchParams.set("theme", theme);
+                    link.href = url.toString();
+                });
+            });
+        </script>
+
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -17,9 +40,9 @@
 
         <div class="welcome">
             <h1>HI! You've made it to page 2!</h1>
-            <p>You've made it to the second page.</p>
-            <p>This page was a proof of concept for linking.</p>
-            <p>It is currently a placeholder page.</p>
+            <p>You've made it to the second page.<br>
+               This page was a proof of concept for linking.<br>
+               It is currently a placeholder page.</p>
         </div>
     </body>
 </html>
