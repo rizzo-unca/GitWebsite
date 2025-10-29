@@ -47,3 +47,13 @@ h2 {
     font-style: normal;
     color: white;
 }
+
+.welcome a{
+    color: yellow;
+}
+
+/* Styling Images to fit the whole site page */
+img {
+    max-width: 100%;
+    height: auto;
+}
