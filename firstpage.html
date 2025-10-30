@@ -8,29 +8,32 @@
         <link id="theme-style" rel="stylesheet" type="text/css" href="styles.css">
 
          <script>
-            // Run this once the page starts loading
             window.addEventListener("DOMContentLoaded", () => {
-                // Get the ?theme= value from the URL
                 const params = new URLSearchParams(window.location.search);
-                const theme = params.get("theme");
+                const theme = params.get("theme") || "regular"; // default to regular
                 const themeLink = document.getElementById("theme-style");
 
-                // Switch stylesheet based on theme
-                if (theme === "contrast") {
-                    themeLink.href = "highcontrast.css";
-                } else {
-                    themeLink.href = "styles.css";
-                }
+                // Map theme names to their CSS files
+                const themeFiles = {
+                    regular: "styles.css",
+                    contrast: "highcontrast.css",
+                    winter: "winter.css"
+                    // add more themes here if needed
+                };
 
-                //  Saving theme in url for all internal links
+                // Apply the selected theme file if it exists, otherwise fallback
+                themeLink.href = themeFiles[theme] || themeFiles.regular;
+
+                // Keep theme across internal links
                 const allLinks = document.querySelectorAll("a[href]");
                 allLinks.forEach(link => {
                     const url = new URL(link.href, window.location.origin);
                     url.searchParams.set("theme", theme);
                     link.href = url.toString();
-                }); 
+                });
             });
         </script>
+
 
     </head>
     <body>
@@ -52,17 +55,19 @@
             <h2>Github Commit timeline</h2>
             <ul>
                 <li>October 27th 2025 [Website Created]</li>
-                <li>October 27th 2025 @ 10:49:47 [Second Page Added]</li>
-                <li>October 27th 2025 @ 10:59:12 [CSS Page Added]</li>
-                <li>October 27th 2025 @ 11:12:04 [Nav Bar Testing Begun]</li>
-                <li>October 27th 2025 @ 11:28:11 [Nav Bar Implementation]</p>
-                <li>October 27th 2025 @ 11:45:56 [Nav Bar Optimization & Site Theme Changes</li>
-                <li>October 29th 2025 @ 09:51:39 [New Font Implimentation]</li>
-                <li>October 29th 2025 @ 10:25:36 [Fourth Page Implementation]</li>
-                <li>October 29th 2025 @ 10:47:45 [Picture Implementation]</li>
-                <li>October 29th 2025 @ 11:05:09 [Picture Refinement]</li>
-                <li>October 29th 2025 @ 01:21:25 [Theme Implementation & Formatting]</li>
-                <li style="color: #bf9b30;">October 29th 2025 @ 02:10:12 [Flexbox Mobile Button Formatting]</li>
+                <li>October 27th 2025 @ 10:49:47a [Second Page Added]</li>
+                <li>October 27th 2025 @ 10:59:12a [CSS Page Added]</li>
+                <li>October 27th 2025 @ 11:12:04a [Nav Bar Testing Begun]</li>
+                <li>October 27th 2025 @ 11:28:11a [Nav Bar Implementation]</p>
+                <li>October 27th 2025 @ 11:45:56a [Nav Bar Optimization & Site Theme Changes</li>
+                <li>October 29th 2025 @ 09:51:39a [New Font Implimentation]</li>
+                <li>October 29th 2025 @ 10:25:36a [Fourth Page Implementation]</li>
+                <li>October 29th 2025 @ 10:47:45a [Picture Implementation]</li>
+                <li>October 29th 2025 @ 11:05:09a [Picture Refinement]</li>
+                <li>October 29th 2025 @ 01:21:25p [Theme Implementation & Formatting]</li>
+                <li>October 29th 2025 @ 02:10:12p [Flexbox Mobile Button Formatting]</li>
+                <li style="color: #bf9b30;">October 29th 2025 @ 11:45:10p [Additional Theme Implementation]</li>
+
 
             </ul>
         </div>

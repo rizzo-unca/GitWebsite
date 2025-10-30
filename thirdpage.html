@@ -11,16 +11,21 @@
         <script>
             window.addEventListener("DOMContentLoaded", () => {
                 const params = new URLSearchParams(window.location.search);
-                const theme = params.get("theme");
+                const theme = params.get("theme") || "regular"; // default to regular
                 const themeLink = document.getElementById("theme-style");
 
-                if (theme === "contrast") {
-                    themeLink.href = "highcontrast.css";
-                } else {
-                    themeLink.href = "styles.css";
-                }
+                // Map theme names to their CSS files
+                const themeFiles = {
+                    regular: "styles.css",
+                    contrast: "highcontrast.css",
+                    winter: "winter.css"
+                    // add more themes here if needed
+                };
 
-                // Keep theme in all links
+                // Apply the selected theme file if it exists, otherwise fallback
+                themeLink.href = themeFiles[theme] || themeFiles.regular;
+
+                // Keep theme across internal links
                 const allLinks = document.querySelectorAll("a[href]");
                 allLinks.forEach(link => {
                     const url = new URL(link.href, window.location.origin);
@@ -43,10 +48,8 @@
             <p>This is the newsletter page.<br>
                You can check back here to see what's being worked on for the site!<br>
                Pictures are live, new ones will be coming soon!<br>
-               We are beginning construction on different website themes!<br>
-               High contrast is under development!<br>
-               High contrast choise has been implemented, currently tweaking<br>
-               the theme itself and working on other themes!</p>
+               We're in the process of different theme testing, any suggestions<br>
+               would be greatly appreciated</p>
         </div>
     </body>
 </html>

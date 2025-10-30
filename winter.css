@@ -1,0 +1,86 @@
+/* High Contrast CSS Theme */
+body{
+    font-family: Arial, sans-serif;
+    background-color: rgb(76, 76, 221);
+}
+
+h1 {
+    color: grey;
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+}
+
+/* Navigation Bar Styling */
+.topnav{
+    position: relative;
+    background-image: linear-gradient(90deg, white, blue);
+    overflow: hidden;
+}
+
+.topnav a{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover{
+    background-color: #aa9ae3;
+    color: black;
+}
+
+.topnav a:active{
+    background-color: #5d547d;
+    color: white;
+}
+
+/* Welcome Text Styling */
+.welcome{
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: white;
+}
+
+.welcome a{
+    color: white;
+}
+
+/* Styling Images to fit the whole site page */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Flexbox for theme buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* This centers our buttons horizontally */
+    gap: 20px; /* this gives space between the buttons */
+    flex-wrap: wrap; /* allows buttons to wrap on small screens */
+}
+
+/* Styling buttons to have flexible size */
+.button-container button {
+    flex: 1 1 150px; /* grow & shrink, with minimum of 150px */
+    padding: 15px 25px; /* padding inside buttons */
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Optional bigger buttons on small screens */
+/* messing about with @media queries */
+@media (max-width: 600px) {
+    .button-container button {
+        flex: 1 1 100%; /* full width on mobile */
+        font-size: 1.2rem;
+        padding: 20px 0;
+    }
+}
