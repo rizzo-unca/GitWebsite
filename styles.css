@@ -58,28 +58,50 @@ img {
     height: auto;
 }
 
+* {
+    box-sizing: border-box;
+}
 /* Flexbox for theme buttons */
 .button-container {
     display: flex;
-    justify-content: center; /* This centers our buttons horizontally */
-    gap: 20px; /* this gives space between the buttons */
-    flex-wrap: wrap; /* allows buttons to wrap on small screens */
+    flex-wrap: wrap; /* lets buttons wrap to next line on smaller screens */
+    justify-content: center; /* centering horizontally */
+    align-items: center; /* align vertically */
+    gap: 1rem; /* adding spacing between buttons */
+    padding: 1rem;
 }
 
-/* Styling buttons to have flexible size */
+/* Making buttons consistent across browsers */
 .button-container button {
-    flex: 1 1 150px; /* grow & shrink, with minimum of 150px */
-    padding: 15px 25px; /* padding inside buttons */
-    font-size: 1rem;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    background-color: #259e2f;
+    color: white;
+    transition: all 0.2 ease;
+    flex: 1 1 150px; /* lets buttons grow/shrink to a min width */
+    -webkit-appearance: none; /* telling safari not to F#%k with my design */
 }
 
-/* Optional bigger buttons on small screens */
-/* messing about with @media queries */
-@media (max-width: 600px) {
+/* Hover effect (because why not) */
+.button-container button:hover {
+    background-color: #017740;
+    color: black;
+}
+
+/* Mobile friendly buttons */
+@media (max-width:600px) {
+    .button-container{
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
     .button-container button {
-        flex: 1 1 100%; /* full width on mobile */
-        font-size: 1.2rem;
-        padding: 20px 0;
+        width: 80%;
+        font-size: 1.1rem;
+        padding: 1rem;
     }
 }

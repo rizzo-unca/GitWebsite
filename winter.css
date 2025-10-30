@@ -1,16 +1,16 @@
 /* High Contrast CSS Theme */
 body{
     font-family: Arial, sans-serif;
-    background-color: rgb(76, 76, 221);
+    background-color: rgb(27, 27, 235);
 }
 
 h1 {
-    color: grey;
+    color: rgb(5, 130, 246);
     text-align: center;
 }
 
 h2 {
-    color: black;
+    color: rgb(60, 5, 92);
     text-align: center;
 }
 
