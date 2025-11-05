@@ -2,6 +2,8 @@
 body{
     font-family: Arial, sans-serif;
     background-color: rgb(27, 27, 235);
+    margin: 0;
+    padding-top: 34px;
 }
 
 h1 {
@@ -16,12 +18,17 @@ h2 {
 
 /* Navigation Bar Styling */
 .topnav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     background-image: linear-gradient(90deg, white, blue);
     padding: 0.5rem;
+    z-index: 1000;
 }
 
 .topnav a{
