@@ -49,6 +49,12 @@ h2 {
     color: white;
 }
 
+.topnav a.current {
+    background-color: #5d547d;
+    color: white;
+    border-radius: 6px;
+}
+
 /* Welcome Text Styling */
 .welcome{
     font-family: "Lexend", sans-serif;
