@@ -17,5 +17,7 @@ function adjustBodyPadding() {
 }
 
 // Run on load & resize
-window.addEventListener('load', adjustBodyPadding);
+window.addEventListener('DOMContentLoaded', () => {
+    loadNavbar();
+});
 window.addEventListener('resize', adjustBodyPadding);
